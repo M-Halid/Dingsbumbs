@@ -1,0 +1,184 @@
+
+cloning
+=======
+
+=== KEINE KLAUSURRELEVANTEN AUFGABEN ===
+
+standard
+________
+
+Erstellen Sie eine Klasse mit einigen Attributen und ohne
+"toString"-Methode!
+Erzeugen Sie in der "main"-Methode ein Objekt und übergeben
+Sie die Objekt-Referenz an die "println"-Methode!
+Beobachten Sie die Bildschirm-Ausgabe!
+
+Fügen Sie der Klasse nun eine "toString"-Methode hinzu
+und versuchen Sie, die gleiche Ausgabe zu produzieren wie oben!
+
+Ergänzen Sie die "toString"-Methode so, dass auch die
+Identifikationen der Eltern-Klassen mit ausgegeben werden!
+
+Hinweis:
+Neue Klassen sollten die "toString"-Methode immer überschreiben.
+Wenn das nicht der Fall ist, gelangt das Programm zur
+Standard-Implementierung in der "java.lang.Object"-Klasse,
+wo lediglich der Klassenname und der wenig aussagekräftige
+Hash-Wert folgendermaßen hexadezimal zusammengebunden werden:
+
+public String toString() {
+
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+
+tostring
+________
+
+Schreiben Sie eine Klasse mit zwei beliebigen Attributen!
+Überschreiben Sie die von der "java.lang.Object"-Klasse geerbte
+"toString"-Methode und lassen Sie sie die Attribut-Werte zurückgeben!
+
+Geben Sie die Objekt-Referenz zweimal auf der Konsole aus:
+einmal durch expliziten und ein andermal durch impliziten
+Aufruf der "toString"-Methode!
+
+equals
+______
+
+Erstellen Sie eine Hauptklasse mit den folgenden zwei Attributen:
+    String name = "Hello";
+    int age = 20;
+
+Erzeugen Sie ein Objekt der Hauptklasse und weisen Sie es zwei
+lokalen Variablen namens o1 und o2 zu!
+Vergleichen Sie die beiden Objekte einmal unter Verwendung des
+"=="-Operators und ein andermal mittels "equals"-Methode!
+Geben Sie jeweils eine Nachricht auf dem Bildschirm aus!
+
+Erzeugen Sie nun ein weiteres Objekt o3 vom Typ der Hauptklasse!
+Führen Sie obige Vergleiche nochmals für o1 und o3 durch!
+
+Überschreiben Sie die von der "java.lang.Object"-Klasse geerbte
+"equals"-Methode!
+Vergleichen Sie in ihr alle Attribute der Klasse!
+Führen Sie das Programm nochmals aus und beobachten Sie,
+ob der Vergleich von o1 und o3 ein anderes Ergebnis liefert!
+
+Hinweis:
+Ergänzen Sie die "equals"-Methode möglichst immer durch die
+"@Override"-Annotation, um Fehler zu vermeiden!
+Wenn die Signatur der "equals"-Methode (Name einschließlich Parameter)
+nicht genau derjenigen der geerbten Methode entspricht, kommt es
+statt einer Überschreibung zu einer Überladung der Methode.
+Und ein Rückgabewert, der nicht vom Typ "boolean" ist, führt
+zur Erstellung einer zweiten Methode mit gleicher Signatur,
+was Java nicht zulässt. (Der Rückgabetyp gehört nicht zur Signatur.)
+
+clone
+_____
+
+Implementieren Sie eine Klasse namens "Person" mit einem Attribut
+name" vom Typ "String" und einem weiteren Attribut "age" vom Typ "int"
+sowie einer "main"-Methode!
+
+Zeigen Sie durch das Interface "Cloneable" an, dass die Klasse klonbar ist!
+
+Erzeugen Sie in der "main"-Methode zwei Objekte:
+- eines durch Verwendung des "new"-Operators;
+- ein weiteres durch Aufruf der "clone"-Methode am zuerst erzeugten Objekt!
+
+Geben Sie Name und Alter der geklonten Person auf dem Bildschirm aus!
+
+strandbad
+_________
+
+Studieren Sie das gegebene UML-Klassendiagramm "strandbad.png"!
+
+Erstellen Sie ein "Domain Model" mit allen aufgeführten Klassen!
+Erstellen Sie außerdem eine "Launcher"-Klasse mit "main"-Methode!
+
+Erzeugen Sie in der "main"-Methode eine Instanz des Domänen-Modells,
+mit anderen Worten der "StrandBad"-Klasse!
+
+Weisen Sie dem Objekt folgende Werte zu:
+- ein Objekt vom Typ "Pool"
+- kein Objekt vom Typ "LiegeStuhlVerleih"
+- kein Objekt vom Typ "EisCafe"
+- ein Container-Objekt vom Typ "ArrayList<Person>"
+
+Fügen Sie dem Container je ein Objekt folgender Typen hinzu:
+- BadeMeister
+- Rettungsschwimmer
+
+Erzeugen Sie nun ein zweites Domänen-Modell vom Typ "StrandBad",
+als flache Kopie (flat copy/ shallow copy) des bereits vorhandenen Modells!
+Ergänzen Sie noch fehlende Implementierungen der "clone"-Methode
+und implementieren Sie das "Cloneable"-Interface, wo nötig!
+
+Geben Sie einzelne Eigenschaften des geklonten Modells auf dem Bildschirm aus!
+
+Erweitern Sie die "clone"-Methoden so, dass eine tiefe Kopie (deep copy)
+des vorhandenen Objektes entsteht!
+
+mensa
+_____
+
+Erstellen Sie ein Java-Projekt namens "cloning", welches das im folgenden
+UML-Klassendiagramm gegebene Domänen-Modell (Klassen, Methoden, Attribute,
+Vererbungen, Assoziationen) implementiert!
+
+Erstellen Sie außerdem eine "Launcher"-Klasse mit "main"-Methode und
+instanziieren Sie in letzterer das Domänen-Modell -- mit anderen Worten
+die "Mensa"-Klasse!
+
+Weisen Sie dem Objekt folgende Werte zu:
+- ein Objekt vom Typ "Kueche"
+- ein Objekt vom Typ "Raum"
+- kein Objekt vom Typ "Bar"
+- ein Objekt vom Typ "ArrayList<Rolle>"
+
+Fügen Sie dem Container je ein Objekt folgender Typen hinzu:
+- Koch
+- TellerWaescher
+
+Erzeugen Sie nun ein zweites Objekt des Domänen-Modells vom Typ "Mensa" und
+zwar als flache Kopie (flat copy/ shallow copy) des bereits vorhandenen Modells!
+
+Erweitern Sie die "clone"-Methode der "Mensa"-Klasse so, dass eine tiefe Kopie
+(deep copy) des vorhandenen Objektes entsteht und richten Sie besonderes
+Augenmerk auf das Klonen des Containers!
+
+Ergänzen Sie noch fehlende Implementierungen der "clone"-Methode in anderen
+Klassen und implementieren Sie das "Cloneable"-Interface, wo nötig!
+
+Hinweis: Die drei Unter-Klassen der "Rolle"-Klasse besitzen der Einfachheit
+halber weder Attribute noch Methoden und benötigen daher keine Implementierung
+der "clone"-Methode.
+
+Geben Sie alle Eigenschaften des originalen sowie des geklonten Modells auf dem
+Bildschirm aus!
+
+competition
+___________
+
+Studieren Sie den Quelltext dieses Beispiels!
+Führen Sie ihn aus und vergleichen Sie die Zeitmess-Ergebnisse!
+Begründen Sie, in welchen Fällen die Serialisierung eines Objektes
+sinnvoller ist als dessen Cloning!
+
+deepcopy
+________
+
+hierarchy
+_________
+
+arraylistflat
+_____________
+
+arraylistdeep
+_____________
+
+family
+______
+
+Arbeiten Sie die Aufgabenstellung "aufgabe_it_2007.pdf" durch!
