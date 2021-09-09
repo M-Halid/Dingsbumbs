@@ -1,0 +1,146 @@
+
+stream
+======
+
+=== KEINE KLAUSURRELEVANTEN AUFGABEN ===
+
+
+filecreation
+____________
+
+Nutzen Sie ein von Ihnen selbst erstelltes Java-Programm, um eine Text-Datei
+mit beliebigem Inhalt zu erzeugen!
+
+Hinweis: Verwenden Sie die Klasse "FileWriter"!
+
+fileoutput
+__________
+
+Legen Sie die in der Kommandozeile angegebene Datei an bzw.
+springen Sie zu ihrem Ende, falls sie bereits vorhanden ist!
+Hängen Sie 256 Bytes mit den Werten 0 bis 255 an das Ende der Datei an!
+
+filecontent
+___________
+
+Erstellen Sie eine Text-Datei mit beliebigem Wortlaut als Inhalt!
+Lesen Sie den Inhalt der Text-Datei mit Hilfe der Klasse "FileInputStream"
+in einem Java-Programm und geben Sie ihn zeichenweise auf dem Bildschirm aus!
+
+fileinout
+_________
+
+Verwenden Sie die Klassen "FileReader" und "FileWriter", um ein Programm
+zu schreiben, das eine vorher auf Dateisysemebene (außerhalb von Java) erstellte
+Text-Datei zeichenweise einliest und ihren Inhalt auf der Konsole ausgibt!
+
+Erweitern Sie das Programm so, dass die Ausgabe zusätzlich in eine zweite
+Datei erfolgt!
+
+filecopy
+________
+
+Erstellen Sie ein Programm zum Kopieren einer Datei!
+Verwenden Sie die Klassen "FileInputStream" und "FileOutputStream"!
+
+Vorsicht:
+Eine bereits vorhandene, gleichnamige Zieldatei wird ohne Rückfrage überschrieben.
+
+bytewriter
+__________
+
+Bild im GIF-Format
+
+buffer
+______
+
+checksum
+________
+
+Schreiben Sie ein Programm zur Berechnung der Adler-32-Prüfsumme
+zu der an der Kommandozeile angegebenen Datei!
+
+Hinweise:
+Die Klasse "CheckedInputStream" aus dem Paket "java.util.zip" dient dazu,
+die Prüfsumme zu einer Menge von Eingabedaten direkt beim Einlesen zu berechnen.
+Sie stellt einen Konstruktor zur Verfügung, mit dem das gewünschte
+Prüfsummenverfahren (z.B. "CRC32" oder Adler32") angegeben werden kann und
+besitzt eine Methode "getChecksum", mit der die Prüfsumme ermittelt wird.
+
+linewise
+________
+
+Schreiben Sie ein Programm, das die Klassen "BufferedReader" und "PrintWriter"
+verwendet, um eine Text-Datei zeilenweise einzulesen und ihren Inhalt in
+eine zweite Text-Datei ebenso zeilenweise auszugeben!
+
+nesting
+_______
+
+Die aus "Writer" abgeleiteten Klassen "BufferedWriter", "PrintWriter" und
+"FilterWriter" besitzen als Membervariable einen zusätzlichen Writer, der im
+Konstruktor übergeben wird.
+Wenn die "write"-Methode eines derart geschachtelten Writers aufgerufen wird,
+gibt sie die Daten nicht direkt an den internen Writer weiter, sondern führt
+zuvor erst ihre eigenen Filterfunktionen aus.
+
+Das folgende Programm demonstriert die gepufferte Ausgabe einer Reihe von
+Textzeilen in eine Datei "buffer.txt". Es erzeugt zunächst einen neuen Writer
+"f1", um die Datei "buffer.txt" anzulegen. Dieser wird anschließend als
+Parameter an den BufferedWriter "f2" übergeben, der dann für den Aufruf der
+Ausgaberoutinen verwendet wird.
+
+package nesting;
+
+import java.io.*;
+
+public class Launcher {
+
+    public static void main(String[] args) {
+
+        Writer f1;
+        BufferedWriter f2;
+        String s;
+
+        try {
+
+            f1 = new FileWriter("buffer.txt");
+            f2 = new BufferedWriter(f1);
+
+            for (int i = 1; i <= 10000; ++i) {
+
+                s = "Dies ist die " + i + ". Zeile";
+
+                f2.write(s);
+                f2.newLine();
+            }
+
+            f2.close();
+            f1.close();
+
+        } catch (IOException e) {
+
+            System.out.println("Fehler beim Erstellen der Datei");
+        }
+    }
+}
+
+Schreiben Sie das Programm so um, dass die etwas umständliche Verwendung zweier
+Stream-Variablen vereinfacht wird, indem die Konstruktoren direkt beim Aufruf
+geschachtelt werden!
+
+filter
+______
+
+Schreiben Sie Ihren eigenen Filter, der eingelesenen Text in Text mit
+Großbuchstaben umwandelt!
+
+Erstellen Sie dazu eine neue Klasse, die von "FilterWriter" erbt!
+Implementieren Sie einen Konstruktor, der den übergebenen Parameter
+vom Typ "Writer" an die Super-Klasse weitergibt!
+
+Überschreiben Sie die gewünschten bzw. benötigten "write"-Methoden!
+Stellen Sie auch solche bereit, die übergebene Parameter vom Typ char[]
+und String entgegennehmen!
+
+Testen Sie den Filter durch Übergabe verschiedener Texte!
