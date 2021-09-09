@@ -1,0 +1,45 @@
+Wildcard
+========
+
+Definition
+__________
+
+Eine Wildcard bezeichnet keinen konkreten Typ,
+sondern eine Familie von Typen.
+
+Arten
+_____
+
+<?>
+<? super [Type]>
+<? extends [Type]>
+<? extends [Type1] & [IType2] & [IType3]>
+
+Empfehlungen
+____________
+
+- Beispiel: "List" (raw) versus "List<?>" (generic)
+- besser generische, als Raw-Typen verwenden
+- durch Raw-Typen können Informationen verloren gehen
+- generische Typen helfen, ClassCastException zu vermeiden
+
+Beispiel
+________
+
+// Annotation:
+// Bindet Zusatzinformationen (Meta Information) in den Quelltext ein.
+// Hat keine direkte Auswirkung auf die Übersetzung des Quelltextes,
+// bietet aber zusätzliche Möglichkeiten im Vergleich zu einfachen Kommentaren.
+
+// Methode Class.getAnnotation:
+// Get an element's annotation for a specified type,
+// if such an annotation is present, else null.
+
+// Generische Klasse mit Verwendung eines "Wildcards".
+// Alles in Ordnung.
+Class<?> c = Class.forName("meinpackage.MeineKlasse");
+MeineAnnotation a = c.getAnnotation(MeineAnnotation.class);
+
+// Raw-Klasse. Nicht kompilierbar.
+Class c = Class.forName("meinpackage.MeineKlasse");
+MeineAnnotation a = c.getAnnotation(MeineAnnotation.class);
