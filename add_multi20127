@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [ -z "$1" ]  # tatsächlich wird das test-Kommando aufgerufen
+  then
+    echo -n "Untere Grenze a: "
+    read a
+  else
+    a=$1
+  fi
+
+if test -z "$2"
+  then
+    echo -n "Operator: "
+    read OP
+  else
+    OP=$2
+  fi
+
+if [ -z "$3" ]; then echo -n "Obere Grenze b: "; read b; else b=$3; fi
+
+#result=a       # das war der Fehler, a wird so nicht dereferenziert --> result wurde auf "a" gesetzt
+result=$a
+
+for ((i=$((a+1));i<=$b;i++))
+  do
+    #result=$(( $result $OP $i ))
+    result=$(echo "scale=0; $result $OP $i" | bc -l)    # das war/ist korrekt
+  done
+
+echo "$a $OP $(($a + 1)) $OP $(($a + 2)) $OP ... $OP $b = $result"
+
+exit 0
